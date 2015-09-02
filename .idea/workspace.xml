@@ -54,8 +54,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/chrome-host-switch/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.32041883" vertical-offset="0" max-vertical-offset="955">
-              <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.65968585" vertical-offset="0" max-vertical-offset="955">
+              <caret line="35" column="3" selection-start-line="35" selection-start-column="3" selection-end-line="35" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -549,7 +549,7 @@
       <updated>1389972486291</updated>
       <workItem from="1441020004492" duration="4918000" />
       <workItem from="1441072593869" duration="13244000" />
-      <workItem from="1441157330318" duration="4781000" />
+      <workItem from="1441157330318" duration="4841000" />
     </task>
     <task id="LOCAL-00001" summary="a">
       <created>1441024950115</created>
@@ -575,11 +575,17 @@
       <option name="project" value="LOCAL" />
       <updated>1441162080067</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="remove idea">
+      <created>1441162126946</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1441162126946</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22943000" />
+    <option name="totallyTimeSpent" value="23003000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="51" y="-4" width="1869" height="1084" extended-state="6" />
@@ -859,8 +865,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/chrome-host-switch/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32041883" vertical-offset="0" max-vertical-offset="955">
-          <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.65968585" vertical-offset="0" max-vertical-offset="955">
+          <caret line="35" column="3" selection-start-line="35" selection-start-column="3" selection-end-line="35" selection-end-column="3" />
           <folding />
         </state>
       </provider>
