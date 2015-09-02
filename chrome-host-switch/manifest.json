@@ -7,25 +7,10 @@
     "19"  : "icons/icon_19.png",
     "128" : "icons/icon_128.png"
   },
-  "background": {
-    "scripts": [
-      "js/background.js"
-    ]
-  },
-  "options_page": "pages/option.html",
-    "content_scripts": [ {
-        "exclude_globs": [  ],
-        "include_globs": [ "*" ],
-        "js": [ "/js/script.js" ],
-        "matches": [ "http://*/*", "https://*/*" ],
-        "run_at": "document_start",
-        "all_frames": false
-    } ],
-
     "browser_action": {
     "default_icon": "icons/icon_16.png",
     "default_title": "Host Switch",
-    "default_popup": "pages/popup.html"
+    "default_popup": "pages/main.html"
   },
   "permissions": [
       "proxy", "tabs",

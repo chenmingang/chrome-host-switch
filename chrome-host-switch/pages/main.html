@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      <link rel="stylesheet" href="/libs/bootstrap3/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/libs/bootstrap3/css/bootstrap-theme.min.css">
+      <link rel="stylesheet" href="/libs/jquery.switchButton.css">
+      <script src="/libs/jquery.min.js"></script>
+      <script src="/libs/bootstrap3/js/bootstrap.min.js"></script>
+      <script src="/libs/bootstrap3/js/bootstrap-typeahead.js"></script>
+      <script src="/libs/jquery-ui.min.js"></script>
+      <script src="/libs/jquery.switchButton.js"></script>
+      <script src="/js/bathHosts.js"></script>
+      <script src="/js/main.js"></script>
+      <style>
+          #content{
+              width: 600px;
+              height:536px;
+              -webkit-border-radius:3px;
+              border: 1px solid #0088CC;
+              position: relative;
+          }
+          textarea[name=textAreahost]{
+              width: 600px;
+              height:500px;
+          }
+      </style>
+  </head>
+  <body>
+    <div id="content">
+        <div id="editHosts">
+            <textarea name="textAreahost"></textarea>
+            <button class="btn btn-primary" id="hostsSave">生效</button>
+            <button class="btn btn-primary" id="hostsRemove">失效</button>
+        </div>
+    </div>
+  </body>
+</html>
