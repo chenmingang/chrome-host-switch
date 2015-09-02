@@ -1,7 +1,74 @@
 (function (window) {
     var hostData = {};
     var items=[];
-    var hostDataKey="HOST_ADMIN";
+    hostData.defaultHostDataKey="test";
+    var hostDataKey=hostData.defaultHostDataKey;
+    if(localStorage.getItem("HOST_ADMIN_KEY")==null){
+        var tmp=[];
+        tmp.push(hostDataKey);
+        localStorage.setItem("HOST_ADMIN_KEY",JSON.stringify(tmp));
+
+    }
+    if(localStorage.getItem("currentHostDataKey")==null){
+        var tmp=[];
+        tmp.push(hostData.defaultHostDataKey);
+        localStorage.setItem("currentHostDataKey",JSON.stringify(tmp));
+    }
+
+    if(localStorage.getItem("status")==null){
+        localStorage.setItem("status",JSON.stringify('off'));
+    }
+
+    hostData.setCurrentHostDataKey=function(key){
+        localStorage.setItem("currentHostDataKey",JSON.stringify(key));
+    }
+    hostData.getCurrentHostDataKey=function(){
+        console.log(localStorage.getItem("currentHostDataKey"));
+        return JSON.parse(localStorage.getItem("currentHostDataKey"));
+    }
+
+    hostData.setStatus=function(status){
+        localStorage.setItem("status",JSON.stringify(status));
+    }
+    hostData.getStatus=function(){
+        return JSON.parse(localStorage.getItem("status"));
+    }
+
+    hostData.addKey=function(key){
+        var hostDataKeys=localStorage.getItem("HOST_ADMIN_KEY");//类型
+        if(hostDataKeys==null||hostDataKeys==undefined){
+            hostDataKeys=[];
+        } else{
+            hostDataKeys=JSON.parse(hostDataKeys);
+        }
+        hostDataKeys.push(key);
+        localStorage.setItem("HOST_ADMIN_KEY",JSON.stringify(hostDataKeys));
+    }
+    hostData.removeKey=function(key){
+        var hostDataKeys=localStorage.getItem("HOST_ADMIN_KEY");//类型
+        hostDataKeys=JSON.parse(hostDataKeys);
+        var tmp=[];
+        for(var i=0;i<hostDataKeys.length;i++){
+            if(key!=hostDataKeys[i]){
+                tmp.push(hostDataKeys[i]);
+            }
+        }
+        localStorage.setItem("HOST_ADMIN_KEY",JSON.stringify(tmp));
+    }
+    hostData.queryKeys=function(){
+        var hostDataKeys=localStorage.getItem("HOST_ADMIN_KEY");//类型
+        return hostDataKeys;
+    }
+
+    hostData.pushAllDataWithKey=function(items,key){
+        hostDataKey=key;
+        hostData.pushAllData(items);
+        //hostDataKey="HOST_ADMIN";
+    }
+    hostData.queryAllDataWithKey=function(key){
+        hostDataKey=key;
+        return hostData.queryAllData();
+    }
 
     hostData.pushAllData=function(items){
         hostData.cleanAllData();
