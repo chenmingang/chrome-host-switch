@@ -9,7 +9,7 @@ $(function () {
         keyObj = JSON.parse(keys);
         var keyHtml = "";
 
-        window.hostData.currentKey='test';//window.hostData.getCurrentHostDataKey();
+        window.hostData.currentKey=window.hostData.getCurrentHostDataKey();
         console.log(window.hostData.currentKey);
         if (keyObj != null) {
             for (var i = 0; i < keyObj.length; i++) {
@@ -92,7 +92,11 @@ $(function () {
         $("#hostsRemove").attr('class','label label-success');
         $("#hostsRemove").text('开启');
         window.hostData.setStatus('on');
-        window.hostData.setCurrentHostDataKey(window.hostData.hostDataKey);
+        window.hostData.setCurrentHostDataKey(window.hostData.currentKey);
+        $(this).text("保存成功");
+        setTimeout(function(){
+            $("#hostsSave").text("保存并生效");
+        },1000)
     });
     $("#hostsRemove").click(function(){
         $(this).attr('class','label label-warning');

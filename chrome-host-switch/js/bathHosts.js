@@ -23,7 +23,6 @@
         localStorage.setItem("currentHostDataKey",JSON.stringify(key));
     }
     hostData.getCurrentHostDataKey=function(){
-        console.log(localStorage.getItem("currentHostDataKey"));
         return JSON.parse(localStorage.getItem("currentHostDataKey"));
     }
 
