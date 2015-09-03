@@ -10,7 +10,6 @@ $(function () {
         var keyHtml = "";
 
         window.hostData.currentKey=window.hostData.getCurrentHostDataKey();
-        console.log(window.hostData.currentKey);
         if (keyObj != null) {
             for (var i = 0; i < keyObj.length; i++) {
                 if(window.hostData.currentKey==keyObj[i]){
@@ -21,7 +20,8 @@ $(function () {
             }
             $("#env-type ul").html(keyHtml);
         }
-        var data=window.hostData.queryAllData(keyObj[0]);
+        var data=window.hostData.queryAllDataWithKey(window.hostData.currentKey);
+        console.log(data);
         extracted(data);
         var status=window.hostData.getStatus();
         if(status=='on'){
@@ -77,6 +77,13 @@ $(function () {
 
     $("#hostsSave").click(function(){
         var data=$("textarea[name=textAreahost]").val();
+        if(data==null||data==undefined||data==""){
+            $(this).text("内容为空");
+            setTimeout(function(){
+                $("#hostsSave").text("保存并生效");
+            },1000);
+            return;
+        }
         var hosts = data.split('\n');
         var items = [];
         for (var i = 0; i < hosts.length; i++) {
@@ -96,7 +103,7 @@ $(function () {
         $(this).text("保存成功");
         setTimeout(function(){
             $("#hostsSave").text("保存并生效");
-        },1000)
+        },1000);
     });
     $("#hostsRemove").click(function(){
         $(this).attr('class','label label-warning');
