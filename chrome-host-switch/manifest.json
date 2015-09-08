@@ -3,13 +3,13 @@
   "name": "迷途Host",
   "description": "迷途Host",
   "icons": {
-    "16"  : "icons/icon_16.png",
-    "19"  : "icons/icon_19.png",
-    "128" : "icons/icon_128.png"
+    "16"  : "icons/16.png",
+    "19"  : "icons/19.png",
+    "128" : "icons/128.png"
   },
     "browser_action": {
-    "default_icon": "icons/icon_16.png",
-    "default_title": "Host Switch",
+    "default_icon": "icons/19.png",
+    "default_title": "Host",
     "default_popup": "pages/main.html"
   },
   "permissions": [
