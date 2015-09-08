@@ -36,6 +36,7 @@ $(function () {
     function extracted(data) {
         var obj = JSON.parse(data);
         var hosts = "";
+        console.log(obj);
         if (obj != null) {
             for (var i = 0; i < obj.length; i++) {
                 hosts += obj[i].ip + ' ' + obj[i].domain + '\n';
@@ -67,7 +68,6 @@ $(function () {
     $("#env-type ul").on("click","li",function(){
        var key=$(this).text();
         var data=window.hostData.queryAllDataWithKey(key);
-        console.log(data);
         window.hostData.currentKey=key;
 
         extracted(data);
@@ -84,6 +84,14 @@ $(function () {
             },1000);
             return;
         }
+        var currentkey=$("ul .btn-success");
+        if(currentkey.length==0){
+            $(this).text("需选择分类");
+            setTimeout(function(){
+                $("#hostsSave").text("保存并生效");
+            },1000);
+            return;
+        }
         var hosts = data.split('\n');
         var items = [];
         for (var i = 0; i < hosts.length; i++) {
@@ -93,6 +101,13 @@ $(function () {
             item.domain = host[1];
             if (item == null || item == undefined || item == '' || item.ip == undefined || item.ip == '' || item.domain == undefined || item.domain == '') continue;
             items.push(item);
+        }
+        if(items.length<=0){
+            $(this).text("无有效内容");
+            setTimeout(function(){
+                $("#hostsSave").text("保存并生效");
+            },1000);
+            return;
         }
         window.hostData.pushAllData(items);
         window.hostData.proxy(items);

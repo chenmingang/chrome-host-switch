@@ -7,7 +7,6 @@
         var tmp=[];
         tmp.push(hostDataKey);
         localStorage.setItem("HOST_ADMIN_KEY",JSON.stringify(tmp));
-
     }
     if(localStorage.getItem("currentHostDataKey")==null){
         var tmp=[];
@@ -46,13 +45,34 @@
     hostData.removeKey=function(key){
         var hostDataKeys=localStorage.getItem("HOST_ADMIN_KEY");//类型
         hostDataKeys=JSON.parse(hostDataKeys);
+        var k=undefined;
         var tmp=[];
         for(var i=0;i<hostDataKeys.length;i++){
             if(key!=hostDataKeys[i]){
                 tmp.push(hostDataKeys[i]);
+                k=hostDataKeys[i];
             }
         }
         localStorage.setItem("HOST_ADMIN_KEY",JSON.stringify(tmp));
+        localStorage.setItem(key,[]);
+        if(k==undefined){
+            k="test";
+        }
+        console.log("dddddd"+k);
+        console.log("dddddd"+JSON.parse(localStorage.getItem("currentHostDataKey")));
+        console.log("dddddd"+key);
+        if(JSON.parse(localStorage.getItem("currentHostDataKey"))==key){
+            var tmp=[];
+            tmp.push(k);
+            console.log("ddddddtmp "+tmp);
+            localStorage.setItem("currentHostDataKey",JSON.stringify(tmp));
+            console.log("ddddddaaa "+JSON.parse(localStorage.getItem("currentHostDataKey")));
+        }
+        if(localStorage.getItem("HOST_ADMIN_KEY")==null){
+            var tmp=[];
+            tmp.push(k);
+            localStorage.setItem("HOST_ADMIN_KEY",JSON.stringify(tmp));
+        }
     }
     hostData.queryKeys=function(){
         var hostDataKeys=localStorage.getItem("HOST_ADMIN_KEY");//类型
