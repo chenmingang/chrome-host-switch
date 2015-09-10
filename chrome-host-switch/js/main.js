@@ -115,6 +115,7 @@ $(function () {
         $("#hostsRemove").text('开启');
         window.hostData.setStatus('on');
         window.hostData.setCurrentHostDataKey(window.hostData.currentKey);
+        chrome.browserAction.setIcon({path:"../icons/19.png"});
         $(this).text("保存成功");
         setTimeout(function(){
             $("#hostsSave").text("保存并生效");
@@ -125,5 +126,6 @@ $(function () {
         $(this).text('关闭');
         window.hostData.setStatus('off');
         window.hostData.proxyClean();
+        chrome.browserAction.setIcon({path:"../icons/grey19.png"});
     });
 });
