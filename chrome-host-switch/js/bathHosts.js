@@ -44,6 +44,7 @@
     }
     hostData.removeKey=function(key){
         var hostDataKeys=localStorage.getItem("HOST_ADMIN_KEY");//类型
+        console.log("hostDataKeys:"+hostDataKeys);
         hostDataKeys=JSON.parse(hostDataKeys);
         var k=undefined;
         var tmp=[];
@@ -54,24 +55,16 @@
             }
         }
         localStorage.setItem("HOST_ADMIN_KEY",JSON.stringify(tmp));
-        localStorage.setItem(key,[]);
+        var empty=[];
+        localStorage.setItem(key,JSON.stringify(empty));
         if(k==undefined){
             k="test";
         }
-        console.log("dddddd"+k);
-        console.log("dddddd"+JSON.parse(localStorage.getItem("currentHostDataKey")));
-        console.log("dddddd"+key);
         if(JSON.parse(localStorage.getItem("currentHostDataKey"))==key){
             var tmp=[];
             tmp.push(k);
-            console.log("ddddddtmp "+tmp);
             localStorage.setItem("currentHostDataKey",JSON.stringify(tmp));
-            console.log("ddddddaaa "+JSON.parse(localStorage.getItem("currentHostDataKey")));
-        }
-        if(localStorage.getItem("HOST_ADMIN_KEY")==null){
-            var tmp=[];
-            tmp.push(k);
-            localStorage.setItem("HOST_ADMIN_KEY",JSON.stringify(tmp));
+            hostData.proxyClean();
         }
     }
     hostData.queryKeys=function(){

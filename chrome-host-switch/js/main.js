@@ -49,6 +49,13 @@ $(function () {
         var key=$("input[name=addKey]").val();
         if(key==null||key==''||key==undefined) return;
         if($("#addKeyBtn").text()=='删除'){
+            if(keyObj.length==1){
+                $("#addKeyBtn").text("分类个数为1，不可删除");
+                setTimeout(function(){
+                    $("#addKeyBtn").text("添加");
+                },1000);
+                return;
+            }
             window.hostData.removeKey(key);
             $("#addKeyBtn").text('添加');
         }else{
@@ -59,11 +66,17 @@ $(function () {
     $("input[name=addKey]").keyup(function(){
         var key=$("input[name=addKey]").val();
         console.log(key);
+        var isDel=0;
         for (var i = 0; i < keyObj.length; i++) {
             if(key==keyObj[i]){
                 $("#addKeyBtn").text('删除');
+                isDel=1;
             }
         }
+        if(isDel==0){
+            $("#addKeyBtn").text("添加");
+        }
+
     });
     $("#env-type ul").on("click","li",function(){
        var key=$(this).text();
@@ -95,6 +108,7 @@ $(function () {
         var hosts = data.split('\n');
         var items = [];
         for (var i = 0; i < hosts.length; i++) {
+            hosts[i]=hosts[i].replace(/\s+/g," ");
             var host = hosts[i].split(' ');
             var item = {};
             item.ip = host[0];
@@ -115,7 +129,7 @@ $(function () {
         $("#hostsRemove").text('开启');
         window.hostData.setStatus('on');
         window.hostData.setCurrentHostDataKey(window.hostData.currentKey);
-        // chrome.browserAction.setIcon({path:"../icons/19.png"});
+         chrome.browserAction.setIcon({path:"../icons/19.png"});
         $(this).text("保存成功");
         setTimeout(function(){
             $("#hostsSave").text("保存并生效");
@@ -126,6 +140,6 @@ $(function () {
         $(this).text('关闭');
         window.hostData.setStatus('off');
         window.hostData.proxyClean();
-        //chrome.browserAction.setIcon({path:"../icons/grey19.png"});
+        chrome.browserAction.setIcon({path:"../icons/G19.png"});
     });
 });
