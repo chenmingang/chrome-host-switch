@@ -44,7 +44,6 @@
     }
     hostData.removeKey=function(key){
         var hostDataKeys=localStorage.getItem("HOST_ADMIN_KEY");//类型
-        console.log("hostDataKeys:"+hostDataKeys);
         hostDataKeys=JSON.parse(hostDataKeys);
         var k=undefined;
         var tmp=[];

@@ -21,7 +21,6 @@ $(function () {
             $("#env-type ul").html(keyHtml);
         }
         var data=window.hostData.queryAllDataWithKey(window.hostData.currentKey);
-        console.log(data);
         extracted(data);
         var status=window.hostData.getStatus();
         if(status=='on'){
@@ -36,7 +35,6 @@ $(function () {
     function extracted(data) {
         var obj = JSON.parse(data);
         var hosts = "";
-        console.log(obj);
         if (obj != null) {
             for (var i = 0; i < obj.length; i++) {
                 hosts += obj[i].ip + ' ' + obj[i].domain + '\n';
@@ -65,7 +63,6 @@ $(function () {
     });
     $("input[name=addKey]").keyup(function(){
         var key=$("input[name=addKey]").val();
-        console.log(key);
         var isDel=0;
         for (var i = 0; i < keyObj.length; i++) {
             if(key==keyObj[i]){
