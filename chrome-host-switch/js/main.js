@@ -136,10 +136,15 @@ $(function () {
         },1000);
     });
     $("#hostsRemove").click(function(){
-        $(this).attr('class','label label-warning');
-        $(this).text('关闭');
-        window.hostData.setStatus('off');
-        window.hostData.proxyClean();
-        chrome.browserAction.setIcon({path:"../icons/G19.png"});
+        if($(this).text() == '开启'){
+            $(this).attr('class','label label-warning');
+            $(this).text('关闭');
+            window.hostData.setStatus('off');
+            window.hostData.proxyClean();
+            chrome.browserAction.setIcon({path:"../icons/G19.png"});    
+        }else{
+            $("#hostsSave").click();
+        }
+        
     });
 });
