@@ -1,4 +1,4 @@
-直接把Hosts贴进去！
+Chrome的host管理工具,doc文件夹中有截图
 ---
 Example:
 ```
